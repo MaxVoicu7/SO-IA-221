@@ -19,7 +19,15 @@ public class TextManipulator {
 
         // Afișăm rezultatul
         System.out.println("Textul după eliminarea spațiilor și liniilor noi: " + result);
-        
+
+        // Apelăm metoda care întoarce textul în oglindă
+        String mirroredText = TextOperations.mirrorText(inputText);
+        System.out.println("Textul în oglindă: " + mirroredText);
+
+        // Apelăm metoda care separă cuvintele din text
+        String[] separatedWords = TextOperations.separateWords(inputText);
+        System.out.println("Cuvintele separate din text: " + String.join(", ", separatedWords));
+
         scanner.close();
     }
 }
