@@ -12,11 +12,18 @@ public class NumberTextExtractor implements TextExtractor {
 
     @Override
     public String extract(String text) {
+        StringBuilder allNumbers = new StringBuilder();
         Matcher matcher = pattern.matcher(text);
-        return matcher.find() ? matcher.group() : "";
+
+        while (matcher.find()) {
+            allNumbers.append(matcher.group());
+        }
+
+        return allNumbers.toString().trim();
     }
 
-    public Pattern getPattern() {
-        return pattern;
+    @Override
+    public String getPattern() {
+        return pattern.pattern();
     }
 }

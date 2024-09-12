@@ -20,4 +20,8 @@ public interface TextExtractor {
      */
     String extract(String text);
 
+    default String getPattern() {
+        return pattern == null ? "" : pattern.pattern();
+    };
+
 }

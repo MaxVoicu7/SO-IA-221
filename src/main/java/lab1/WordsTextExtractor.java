@@ -13,12 +13,18 @@ public class WordsTextExtractor implements TextExtractor {
 
     @Override
     public String extract(String text) {
+        StringBuilder allWords = new StringBuilder();
         Matcher matcher = pattern.matcher(text);
-        return matcher.find() ? matcher.group() : "";
+
+        while (matcher.find()) {
+            allWords.append(matcher.group()).append(", ");
+        }
+
+        return allWords.toString().trim();
     }
 
-    public Pattern getPattern() {
-        return pattern;
+    @Override
+    public String getPattern() {
+        return pattern.pattern();
     }
-
 }
