@@ -1,0 +1,10 @@
+Studentii:
+Varzari Eduard 
+Samohvalov Ana
+
+Problema
+9. O aplicație care simulează alegerea unei fantome (fiecare fantomă este clasă). Pe baza
+parametrilor introduși de utilizator (parametri – numere sau text) programul va afișa un
+anumit tip de fantomă. Fiecare membru al echipei trebuie să implementeze o clasă pentru
+fantomă cu trei parametri de definit. În algoritmul principal (clasa) pentru a implementa
+relația, cel puțin, între doua clase.
