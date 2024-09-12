@@ -1,0 +1,11 @@
+Varianta 11
+
+studenti:
+Voicu Maxim
+Basaraba Ilie
+
+Conditie problema:
+O aplicație care extrage anumite informații din text introdus. Fiecare membru al echipei
+implementează o clasă care recupereaz informații solicitate în mod specific. În algoritmul
+principal (clasa) implementează o relație între cel puțin două clase. (nota: încercați să
+folosiți expresii regulate)
