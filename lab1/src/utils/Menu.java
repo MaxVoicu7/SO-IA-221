@@ -1,11 +1,22 @@
 package utils;
 
+import lab1.NumberBasicExtractor;
+import lab1.NumberParameterExtractor;
+
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Menu {
 
     private final Scanner scanner;
     private String text = null;
+
+    String result;
+    int count;
+    String parameter;
+
+    NumberBasicExtractor nrBasicExtractor = new NumberBasicExtractor();
+    NumberParameterExtractor nrParameterExtractor = new NumberParameterExtractor();
 
     public Menu() {
         this.scanner = new Scanner(System.in);
@@ -17,12 +28,15 @@ public class Menu {
             System.out.println("Menu");
             System.out.println("1. Read text from file");
             System.out.println("2. Display text");
-            System.out.println("3. Option 3");
-            System.out.println("4. Exit");
+            System.out.println("3. Extract numbers from text");
+            System.out.println("4. Count numbers from text");
+            System.out.println("5. Extract specific number from text");
+            System.out.println("6. Count specific number from text");
+            System.out.println("10. Exit");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
             handleChoice(choice);
-        } while (choice != 4);
+        } while (choice != 10);
     }
 
     private void handleChoice(int choice) {
@@ -40,6 +54,7 @@ public class Menu {
                 }
 
                 break;
+
             case 2:
                 if (text == null) {
                     System.out.println("\nNo text read from input.txt\n");
@@ -51,11 +66,119 @@ public class Menu {
                 break;
 
             case 3:
-                System.out.println("\nOption 3 selected.\n");
+                if (text == null) {
+                    System.out.println("\nNo text read from input.txt\n");
+                    break;
+                }
+
+                System.out.println("\nExtracting all numbers from text\n");
+
+                result = nrBasicExtractor.extract(text);
+
+                if (Objects.equals(result, "")) {
+                    System.out.println("No numbers found\n");
+                } else {
+                    System.out.println("Numbers found: " + result + "\n");
+                }
+
+                result = null;
+
                 break;
+
             case 4:
-                System.out.println("\nThanks for using our program :)\n");
+                if (text == null) {
+                    System.out.println("\nNo text read from input.txt\n");
+                    break;
+                }
+
+                System.out.println("\nCounting all numbers from text\n");
+
+                count = nrBasicExtractor.count(text);
+
+                if (count == 0) {
+                    System.out.println("No numbers found\n");
+                } else {
+                    System.out.println("Numbers found: " + count+ "\n");
+                }
+
+                count = 0;
+
                 break;
+
+            case 5:
+                if (text == null) {
+                    System.out.println("\nNo text read from input.txt\n");
+                    break;
+                }
+
+                System.out.println("\nExtracting a specific number from text\n");
+
+                if (scanner.hasNextLine()) {
+                    scanner.nextLine();
+                }
+
+                do {
+                    System.out.print("Enter the specific number to extract (digits only): ");
+                    parameter = scanner.nextLine();
+
+                    if (!parameter.matches("\\d+")) {
+                        System.out.println("Invalid input. Please enter digits only.");
+                    }
+
+                } while (!parameter.matches("\\d+"));
+
+                result = nrParameterExtractor.extract(text, parameter);
+
+                if (Objects.equals(result, "")) {
+                    System.out.println("No occurrences of the number '" + parameter + "' found\n");
+                } else {
+                    System.out.println("Occurrences of the number '" + parameter + "' found: " + result + "\n");
+                }
+
+                result = null;
+                parameter = null;
+
+                break;
+
+            case 6:
+                if (text == null) {
+                    System.out.println("\nNo text read from input.txt\n");
+                    break;
+                }
+
+                System.out.println("\nCounting a specific number from text\n");
+
+                if (scanner.hasNextLine()) {
+                    scanner.nextLine();
+                }
+
+                do {
+                    System.out.print("Enter the specific number to extract (digits only): ");
+                    parameter = scanner.nextLine();
+
+                    if (!parameter.matches("\\d+")) {
+                        System.out.println("Invalid input. Please enter digits only.");
+                    }
+
+                } while (!parameter.matches("\\d+"));
+
+                count = nrParameterExtractor.count(text, parameter);
+
+                if (count == 0) {
+                    System.out.println("No occurrences of the number '" + parameter + "' found\n");
+                } else {
+                    System.out.println("Occurrences of the number '" + parameter + "' found: " + count + "\n");
+                }
+
+                count = 0;
+                parameter = null;
+
+                break;
+
+            case 10:
+                System.out.println("\nThanks for using our program\n");
+                break;
+
             default:
                 System.out.println("\nInvalid choice. Please try again!\n");
                 break;
