@@ -1,9 +1,6 @@
 package utils;
 
-import lab1.NumberBasicExtractor;
-import lab1.NumberParameterExtractor;
-import lab1.SpecialCharBasicExtractor;
-import lab1.SpecialCharParameterExtractor;
+import lab1.*;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -21,6 +18,8 @@ public class Menu {
   NumberParameterExtractor nrParameterExtractor = new NumberParameterExtractor();
   SpecialCharBasicExtractor specialCharBasicExtractor = new SpecialCharBasicExtractor();
   SpecialCharParameterExtractor specialCharParameterExtractor = new SpecialCharParameterExtractor();
+  CharParameterExtractor charParameterExtractor = new CharParameterExtractor();
+  WordParameterExtractor wordParameterExtractor = new WordParameterExtractor();
 
   public Menu() {
     this.scanner = new Scanner(System.in);
@@ -40,6 +39,10 @@ public class Menu {
       System.out.println("8. Count special characters from text");
       System.out.println("9. Extract specific special character from text");
       System.out.println("10. Count specific special character from text");
+      System.out.println("11. Extract specific character from text");
+      System.out.println("12. Count specific character from text");
+      System.out.println("13. Extract word from text");
+      System.out.println("14. Count word from text");
       System.out.println("15. Exit");
       System.out.print("Enter your choice: ");
       choice = scanner.nextInt();
@@ -293,6 +296,145 @@ public class Menu {
 
         break;
 
+      case 11:
+        if (text == null) {
+          System.out.println("\nNo text read from input.txt\n");
+          break;
+        }
+
+        System.out.println("\nExtracting a specific character from text\n");
+
+        if (scanner.hasNextLine()) {
+          scanner.nextLine();
+        }
+
+        do {
+          System.out.print("Enter the specific character to extract: ");
+          parameter = scanner.nextLine();
+
+          if (!parameter.matches("[a-zA-Z\\s]") || parameter.length() != 1) {
+            System.out.println("Invalid input. Please enter exactly one character.");
+          }
+
+        } while (!parameter.matches("[a-zA-Z\\s]") || parameter.length() != 1);
+
+        result = charParameterExtractor.extract(text, parameter);
+
+        if (Objects.equals(result, "")) {
+          System.out.println("No occurrences of the character '" + parameter + "' found\n");
+        } else {
+          System.out.println("Occurrences of the character '" + parameter + "' found: " + result + "\n");
+        }
+
+        result = null;
+        parameter = null;
+
+        break;
+
+      case 12:
+        if (text == null) {
+          System.out.println("\nNo text read from input.txt\n");
+          break;
+        }
+
+        System.out.println("\nCounting a specific character from text\n");
+
+        if (scanner.hasNextLine()) {
+          scanner.nextLine();
+        }
+
+        do {
+          System.out.print("Enter the specific character to count: ");
+          parameter = scanner.nextLine();
+
+          if (!parameter.matches("[a-zA-Z\\s]") || parameter.length() != 1) {
+            System.out.println("Invalid input. Please enter exactly one special character.");
+          }
+
+        } while (!parameter.matches("[a-zA-Z\\s]") || parameter.length() != 1);
+
+        count = charParameterExtractor.count(text, parameter);
+
+        if (count == 0) {
+          System.out.println("No occurrences of the character '" + parameter + "' found\n");
+        } else {
+          System.out.println("Occurrences of the character '" + parameter + "' found: " + count + "\n");
+        }
+
+        count = 0;
+        parameter = null;
+
+        break;
+
+      case 13:
+        if (text == null) {
+          System.out.println("\nNo text read from input.txt\n");
+          break;
+        }
+
+        System.out.println("\nExtracting a word from text\n");
+
+        if (scanner.hasNextLine()) {
+          scanner.nextLine();
+        }
+
+        do {
+          System.out.print("Enter the word to extract: ");
+          parameter = scanner.nextLine();
+
+          if (!parameter.matches("[a-zA-Z]{2,20}")) {
+            System.out.println("Invalid input. Please enter a word consisting only of letters, with length between 2 and 20.");
+          }
+
+        } while (!parameter.matches("[a-zA-Z]{2,20}"));
+
+        result = wordParameterExtractor.extract(text, parameter);
+
+        if (Objects.equals(result, "")) {
+          System.out.println("No occurrences of the word '" + parameter + "' found\n");
+        } else {
+          System.out.println("Occurrences of the word '" + parameter + "' found: " + result + "\n");
+        }
+
+        result = null;
+        parameter = null;
+
+        break;
+
+      case 14:
+        if (text == null) {
+          System.out.println("\nNo text read from input.txt\n");
+          break;
+        }
+
+        System.out.println("\nCounting a word from text\n");
+
+        if (scanner.hasNextLine()) {
+          scanner.nextLine();
+        }
+
+        do {
+          System.out.print("Enter the word to extract: ");
+          parameter = scanner.nextLine();
+
+          if (!parameter.matches("[a-zA-Z]{2,20}")) {
+            System.out.println("Invalid input. Please enter a word consisting only of letters, with length between 2 and 20.");
+          }
+
+        } while (!parameter.matches("[a-zA-Z]{2,20}"));
+
+        count = wordParameterExtractor.count(text, parameter);
+
+        if (count == 0) {
+          System.out.println("No occurrences of the word '" + parameter + "' found\n");
+        } else {
+          System.out.println("Occurrences of the word '" + parameter + "' found: " + count + "\n");
+        }
+
+        count = 0;
+        parameter = null;
+
+        break;
       case 15:
         System.out.println("\nThanks for using our program\n");
         break;
