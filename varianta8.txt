@@ -1,0 +1,3 @@
+Aplicatie care simuleaza aruncarea zarurilor si tine evidenta rezultate. 
+Fiecare membru al echipei poate implementa o clasa pentru modelare un anumit tip de zaruri (de exemplu: cu sase fete, cu doisprezece fete). 
+In algoritmul principal (clasa) implementati relatia, cel putin intre doua clase.
