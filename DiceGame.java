@@ -5,7 +5,7 @@ class DiceGame {
     private List<Dice> diceList;
     private List<Integer> results;
 
-    // Constructor
+
     public DiceGame() {
         diceList = new ArrayList<>();
         results = new ArrayList<>();
