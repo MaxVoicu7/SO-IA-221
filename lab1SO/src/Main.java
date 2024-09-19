@@ -1,15 +1,57 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.io.*;
+import java.nio.file.*;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
+        String filePath = "example.txt";
+        AdvancedFileHandler fileHandler = new AdvancedFileHandler(filePath);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        int option = 0;
+        while (option != 5) {
+            System.out.println("\n==== Meniu ====");
+            System.out.println("1. Adaugă text în fișier");
+            System.out.println("2. Citește conținutul fișierului");
+            System.out.println("3. Înlocuiește un cuvânt în fișier");
+            System.out.println("4. Șterge tot conținutul fișierului");
+            System.out.println("5. Ieșire");
+            System.out.print("Selectează o opțiune: ");
+            option = scanner.nextInt();
+            scanner.nextLine(); // pentru a consuma linia nouă
+
+            switch (option) {
+                case 1:
+                    System.out.print("Introduceți textul de adăugat: ");
+                    String textToAdd = scanner.nextLine();
+                    fileHandler.addTextToFile(textToAdd);
+                    break;
+
+                case 2:
+                    fileHandler.readFileContent();
+                    break;
+
+                case 3:
+                    System.out.print("Introduceți cuvântul de înlocuit: ");
+                    String oldWord = scanner.nextLine();
+                    System.out.print("Introduceți cuvântul nou: ");
+                    String newWord = scanner.nextLine();
+                    fileHandler.replaceWordInFile(oldWord, newWord);
+                    break;
+
+                case 4:
+                    fileHandler.clearFileContent();
+                    break;
+
+                case 5:
+                    System.out.println("Ieșire din aplicație.");
+                    break;
+
+                default:
+                    System.out.println("Opțiune invalidă. Încearcă din nou.");
+                    break;
+            }
         }
+
+        scanner.close();
     }
 }
