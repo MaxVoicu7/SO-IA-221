@@ -54,6 +54,16 @@ public class Main {
                         ItalianCuisineServiceImpl italianRecipe4 = new ItalianCuisineServiceImpl();
                         System.out.println("4. " + italianRecipe4.risotto());
 
+                        ItalianCuisineServiceImpl italianRecipe5 = new ItalianCuisineServiceImpl();
+                        System.out.println("5. " + italianRecipe5.spaghettiAglioEOlio());
+
+                        ItalianCuisineServiceImpl italianRecipe6 = new ItalianCuisineServiceImpl();
+                        System.out.println("6. " + italianRecipe6.frittata());
+
+                        ItalianCuisineServiceImpl italianRecipe7 = new ItalianCuisineServiceImpl();
+                        System.out.println("7. " + italianRecipe7.penneAllaArrabbiata());
+
+
                         System.out.print("Do you want to return to the main menu? (yes/no): ");
                         String response = myObj.next();
                         if (response.equalsIgnoreCase("yes")) {
