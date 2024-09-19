@@ -1,3 +1,4 @@
+import ItalianCuisine.ItalianCuisineServiceImpl;
 import ingredients.Ingredients;
 import moldavianCuisine.MoldovanCuisineServiceImpl;
 import java.util.Scanner;
@@ -43,8 +44,25 @@ public class Main {
 
                 case 2:
                     while (true) {
-                        System.out.println("Italian Cuisine recipes will be displayed here.");
-                        // Adaugă ingredientele pentru bucătăria italiană aici
+                        System.out.println("Recipes from Italian cuisine \n");
+                        ItalianCuisineServiceImpl italianRecipe1 = new ItalianCuisineServiceImpl();
+                        System.out.println("1. " + italianRecipe1.lasagna());
+
+                        ItalianCuisineServiceImpl italianRecipe3 = new ItalianCuisineServiceImpl();
+                        System.out.println("3. " + italianRecipe3.pizzaMargherita());
+
+                        ItalianCuisineServiceImpl italianRecipe4 = new ItalianCuisineServiceImpl();
+                        System.out.println("4. " + italianRecipe4.risotto());
+
+                        ItalianCuisineServiceImpl italianRecipe5 = new ItalianCuisineServiceImpl();
+                        System.out.println("5. " + italianRecipe5.spaghettiAglioEOlio());
+
+                        ItalianCuisineServiceImpl italianRecipe6 = new ItalianCuisineServiceImpl();
+                        System.out.println("6. " + italianRecipe6.frittata());
+
+                        ItalianCuisineServiceImpl italianRecipe7 = new ItalianCuisineServiceImpl();
+                        System.out.println("7. " + italianRecipe7.penneAllaArrabbiata());
+
 
                         System.out.print("Do you want to return to the main menu? (yes/no): ");
                         String response = myObj.next();
