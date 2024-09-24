@@ -41,14 +41,14 @@ public class Main {
                     double num1_4 = scanner.nextDouble();
                     System.out.println("Introduceti al doilea numar:");
                     double num2_4 = scanner.nextDouble();
-                    result = MultDiv.mult(num1_4, num2_4);
+                    result = multDiv.mult(num1_4, num2_4);
                     break;
                 case 5:
                     System.out.println("\nIntroduceti primul numar:");
                     double num1_5 = scanner.nextDouble();
                     System.out.println("Introduceti al doilea numar:");
                     double num2_5 = scanner.nextDouble();
-                    result = MultDiv.div(num1_5, num2_5);
+                    result = multDiv.div(num1_5, num2_5);
                     break;
                 case 6:
                     System.out.println("\nIntroduceti primul numar:");

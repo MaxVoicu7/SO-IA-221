@@ -8,7 +8,7 @@ public class MultDiv {
         if(b != 0){
             return a / b;
         } else {
-            Sistem.out.println("Impartirea la zero nu e permisa!");
+            System.out.println("Impartirea la zero nu e permisa!");
             return 0;
         }
     }
