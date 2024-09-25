@@ -5,7 +5,6 @@ class DiceGame {
     private List<Dice> diceList;
     private List<Integer> results;
 
-
     public DiceGame() {
         diceList = new ArrayList<>();
         results = new ArrayList<>();
@@ -22,7 +21,7 @@ class DiceGame {
         for (Dice dice : diceList) {
             int result = dice.roll();
             results.add(result);
-            System.out.println("Zar cu " + dice.getNumFaces() + " fețe a dat: " + result);
+            System.out.println(dice.getDescription() + " a dat: " + result);
         }
     }
 
