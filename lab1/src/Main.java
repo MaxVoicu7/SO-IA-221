@@ -227,3 +227,53 @@ public class AlegereFantoma {
                     for (int i = 0; i < fantome.size(); i++) {
                         System.out.println((i + 1) + ". " + fantome.get(i).getClass().getSimpleName() + " - " + ((FantomaDeBaza) fantome.get(i)).nume);
                     }
+                    // Selectarea fantomei
+                    System.out.println("Introduceți numărul fantomei pe care doriți să o selectați: ");
+                    int fantomaAlesa = scanner.nextInt();
+                    if (fantomaAlesa >= 1 && fantomaAlesa <= fantome.size()) {
+                        Fantoma fantomaSelectata = fantome.get(fantomaAlesa - 1);
+                        fantomaSelectata.descrieFantoma();
+
+                        // Interacțiune cu fantoma selectată
+                        System.out.println("Ce doriți să faceți cu această fantomă?");
+                        System.out.println("1. Schimbați culoarea (pentru fantomele vicleane)");
+                        System.out.println("2. Schimbați volumul (pentru fantomele zgomotoase și eterice)");
+                        System.out.println("3. Ieșiți");
+                        int optiuneInteractie = scanner.nextInt();
+
+                        if (optiuneInteractie == 1 && fantomaSelectata instanceof FantomaVicleana) {
+                            // Schimbarea culorii pentru fantoma vicleană
+                            System.out.println("Alegeți noua culoare (1-ALB, 2-ROSU, 3-VERDE, 4-ALBASTRU, 5-NEGRU, 6-TRANSPARENT): ");
+                            int optiuneNouaCuloare = scanner.nextInt();
+                            Culoare nouaCuloare = Culoare.values()[optiuneNouaCuloare - 1];
+                            ((FantomaVicleana) fantomaSelectata).schimbaCuloarea(nouaCuloare);
+                        }
+                        else if (optiuneInteractie == 2 && (fantomaSelectata instanceof FantomaZgomotoasa || fantomaSelectata instanceof FantomaEterica)) {
+                            // Schimbarea volumului pentru fantomele zgomotoase și eterice
+                            System.out.println("Introduceți noul volum (în decibeli): ");
+                            int nouVolum = scanner.nextInt();
+                            if (fantomaSelectata instanceof FantomaZgomotoasa) {
+                                ((FantomaZgomotoasa) fantomaSelectata).schimbaVolum(nouVolum);
+                            } else if (fantomaSelectata instanceof FantomaEterica) {
+                                ((FantomaEterica) fantomaSelectata).schimbaVolum(nouVolum);
+                            }
+                        }
+                        else if (optiuneInteractie == 3) {
+                            System.out.println("Ieșire din meniul de interacțiune...");
+                        }
+                        else {
+                            System.out.println("Opțiune invalidă.");
+                        }
+                    } else {
+                        System.out.println("Opțiune invalidă.");
+                    }
+                }
+            }
+            else {
+                System.out.println("Opțiune invalidă.");
+            }
+        }
+
+        scanner.close();
+    }
+}
