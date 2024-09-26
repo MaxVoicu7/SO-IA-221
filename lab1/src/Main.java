@@ -130,4 +130,100 @@ class FantomaEterica extends FantomaDeBaza {
 
     public void schimbaVolum(int nouVolum) {
     }
-}   
+}
+// Meniul principal pentru alegerea fantomelor
+public class AlegereFantoma {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Fantoma> fantome = new ArrayList<>();
+        int optiune = 0;
+
+        while (optiune != 8) {
+            // Meniul principal
+            System.out.println("\n---- Meniu Principal ----");
+            System.out.println("1. Creează o fantomă fricoasă");
+            System.out.println("2. Creează o fantomă zgomotoasă");
+            System.out.println("3. Creează o fantomă prietenoasă");
+            System.out.println("4. Creează o fantomă vicleană");
+            System.out.println("5. Creează o fantomă tristă");
+            System.out.println("6. Creează o fantomă eterică");
+            System.out.println("7. Alege o fantomă creată");
+            System.out.println("8. Ieșire");
+            System.out.println("Alegeți o opțiune: ");
+            optiune = scanner.nextInt();
+
+            if (optiune == 8) {
+                System.out.println("Ieșire din program...");
+                break;
+            }
+
+            // Creare de fantome
+            if (optiune >= 1 && optiune <= 6) {
+                // Citirea numelui fantomei
+                scanner.nextLine(); // Consumă newline rămas
+                Pattern pattern = Pattern.compile("^[a-zA-Z]+$");
+                System.out.println("Introduceți numele fantomei: ");
+                String nume = scanner.nextLine();
+                while (!pattern.matcher(nume).matches()) {
+                    System.out.println("Nume invalid. Introduceți un nume valid (doar litere): ");
+                    nume = scanner.nextLine();
+                }
+
+                // Citirea intensității
+                System.out.println("Introduceți intensitatea fantomei (1-10): ");
+                int intensitate = scanner.nextInt();
+                while (intensitate < 1 || intensitate > 10) {
+                    System.out.println("Intensitate invalidă. Introduceți o valoare între 1 și 10: ");
+                    intensitate = scanner.nextInt();
+                }
+
+                // Alegerea culorii
+                System.out.println("Alegeți culoarea fantomei (1-ALB, 2-ROSU, 3-VERDE, 4-ALBASTRU, 5-NEGRU, 6-TRANSPARENT): ");
+                int optiuneCuloare = scanner.nextInt();
+                Culoare culoare = Culoare.values()[optiuneCuloare - 1];
+
+                // Crearea fantomelor în funcție de opțiune
+                switch (optiune) {
+                    case 1:
+                        Fantoma fricoasa = new FantomaFricoasa(nume, intensitate, culoare);
+                        fantome.add(fricoasa);
+                        break;
+                    case 2:
+                        System.out.println("Introduceți volumul fantomei zgomotoase (în decibeli): ");
+                        int volum = scanner.nextInt();
+                        Fantoma zgomotoasa = new FantomaZgomotoasa(nume, intensitate, culoare, volum);
+                        fantome.add(zgomotoasa);
+                        break;
+                    case 3:
+                        Fantoma prietenoasa = new FantomaPrietenoasa(nume, intensitate, culoare);
+                        fantome.add(prietenoasa);
+                        break;
+                    case 4:
+                        Fantoma vicleana = new FantomaVicleana(nume, intensitate, culoare);
+                        fantome.add(vicleana);
+                        break;
+                    case 5:
+                        scanner.nextLine(); // Consumă newline
+                        System.out.println("Introduceți starea de spirit a fantomei (tristă/fericită): ");
+                        String stareDeSpirit = scanner.nextLine();
+                        Fantoma trista = new FantomaTrista(nume, intensitate, culoare, stareDeSpirit);
+                        fantome.add(trista);
+                        break;
+                    case 6:
+                        System.out.println("Introduceți volumul fantomei eterice (în decibeli): ");
+                        int volumEteric = scanner.nextInt();
+                        Fantoma eterica = new FantomaEterica(nume, intensitate, culoare, volumEteric);
+                        fantome.add(eterica);
+                        break;
+                }
+            }
+            // Alege o fantomă creată și interacționează cu aceasta
+            else if (optiune == 7) {
+                if (fantome.isEmpty()) {
+                    System.out.println("Nu există fantome create.");
+                } else {
+                    // Afișarea fantomelor create
+                    System.out.println("Alegeți o fantomă creată:");
+                    for (int i = 0; i < fantome.size(); i++) {
+                        System.out.println((i + 1) + ". " + fantome.get(i).getClass().getSimpleName() + " - " + ((FantomaDeBaza) fantome.get(i)).nume);
+                    }
