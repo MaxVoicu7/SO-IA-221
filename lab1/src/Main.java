@@ -84,4 +84,50 @@ class FantomaVicleana extends FantomaDeBaza {
         this.culoare = nouaCuloare;
         System.out.println(nume + " și-a schimbat culoarea în " + culoare + "!");
     }
-    
+    @Override
+    public void descrieFantoma() {
+        System.out.println("Fantoma vicleană " + nume + " poate schimba culoarea și are intensitatea de " + intensitate + ".");
+    }
+}
+
+// Fantoma Tristă - Variază intensitatea
+class FantomaTrista extends FantomaDeBaza {
+    private String stareDeSpirit;
+
+    public FantomaTrista(String nume, int intensitate, Culoare culoare, String stareDeSpirit) {
+        super(nume, intensitate, culoare);
+        this.stareDeSpirit = stareDeSpirit;
+        ajusteazaIntensitatea();
+    }
+
+    private void ajusteazaIntensitatea() {
+        if (stareDeSpirit.equalsIgnoreCase("trista")) {
+            this.intensitate -= 2;
+        } else if (stareDeSpirit.equalsIgnoreCase("fericita")) {
+            this.intensitate += 2;
+        }
+    }
+
+    @Override
+    public void descrieFantoma() {
+        System.out.println("Fantoma tristă " + nume + " este în starea de spirit " + stareDeSpirit + " și are intensitatea de " + intensitate + ".");
+    }
+}
+
+// Fantoma Eterică - Invizibilă, dar zgomotoasă
+class FantomaEterica extends FantomaDeBaza {
+    private int volum;
+
+    public FantomaEterica(String nume, int intensitate, Culoare culoare, int volum) {
+        super(nume, intensitate, culoare);
+        this.volum = volum;
+    }
+
+    @Override
+    public void descrieFantoma() {
+        System.out.println("Fantoma eterică " + nume + " aproape invizibilă cu intensitatea " + intensitate + " și volumul de " + volum + " decibeli.");
+    }
+
+    public void schimbaVolum(int nouVolum) {
+    }
+}
