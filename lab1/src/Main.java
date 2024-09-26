@@ -130,4 +130,4 @@ class FantomaEterica extends FantomaDeBaza {
 
     public void schimbaVolum(int nouVolum) {
     }
-}
+}   
