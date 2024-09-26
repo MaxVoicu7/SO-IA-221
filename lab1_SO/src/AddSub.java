@@ -1,7 +1,8 @@
 // Clasa AddSub contine metode pentru adunarea si scaderea a doua numere
-public class AddSub {
+public class AddSub extends MathOperation {
     // Metodă pentru adunarea a două numere de tip double
-    public double add(double a, double b) {
+    @Override
+    public double execute(double a, double b) {
         return a + b; // Returnăm suma celor două numere
     }
 

@@ -1,8 +1,9 @@
 // Clasa MultDiv contine metode pentru inmultire si impartire a doua numere
-public class MultDiv {
+public class MultDiv extends MathOperation{
 
     // Metoda mult returneaza produsul dintre doua numere de tip double
-    public double mult(double a, double b){
+    @Override
+    public double execute(double a, double b){
         return a * b; // inmulteste a si b
     }
 

@@ -23,7 +23,7 @@ public class Main {
                     double num1_1 = scanner.nextDouble(); // Citim primul număr
                     System.out.println("Introduceti al doilea numar:");
                     double num2_1 = scanner.nextDouble(); // Citim al doilea număr
-                    result = addSub.add(num1_1, num2_1); // Apelăm metoda de adunare
+                    result = addSub.execute(num1_1, num2_1); // Apelăm metoda de adunare
                     break;
                 case 2:
                     System.out.println("\nIntroduceti primul numar:");
@@ -37,14 +37,14 @@ public class Main {
                     double num1_3 = scanner.nextDouble();
                     System.out.println("Introduceti al doilea numar:");
                     double num2_3 = scanner.nextDouble();
-                    result = powRoot.power(num1_3, num2_3); // Apelăm metoda de exponentiere
+                    result = powRoot.execute(num1_3, num2_3); // Apelăm metoda de exponentiere
                     break;
                 case 4:
                     System.out.println("\nIntroduceti primul numar:");
                     double num1_4 = scanner.nextDouble();
                     System.out.println("Introduceti al doilea numar:");
                     double num2_4 = scanner.nextDouble();
-                    result = multDiv.mult(num1_4, num2_4); // Apelăm metoda de înmulțire
+                    result = multDiv.execute(num1_4, num2_4); // Apelăm metoda de înmulțire
                     break;
                 case 5:
                     System.out.println("\nIntroduceti primul numar:");

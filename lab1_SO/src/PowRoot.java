@@ -1,8 +1,9 @@
 // Clasa PowRoot contine metode pentru ridicarea la putere si extragerea radacinii unui numar
-public class PowRoot {
+public class PowRoot extends MathOperation{
 
     // Metoda power returneaza rezultatul ridicarii la putere a numarului a la exponentul b
-    public double power(double a, double b) {
+    @Override
+    public double execute(double a, double b) {
         return Math.pow(a, b); // utilizeaza metoda Math.pow pentru ridicarea lui a la puterea b
     }
 
