@@ -1,6 +1,5 @@
-import java.io.*;
-import java.nio.file.*;
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -20,7 +19,7 @@ public class Main {
             System.out.println("8. Ieșire");
             System.out.print("Selectează o opțiune: ");
             option = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consumăm newline-ul după int input
 
             switch (option) {
                 case 1:
@@ -46,6 +45,27 @@ public class Main {
                     break;
 
                 case 5:
+                    int wordCount = fileHandler.countWordsInFile();
+                    System.out.println("Numărul de cuvinte din fișier: " + wordCount);
+                    break;
+
+                case 6:
+                    System.out.print("Introduceți cuvântul de căutat: ");
+                    String wordToSearch = scanner.nextLine();
+                    boolean exists = fileHandler.isWordInFile(wordToSearch);
+                    if (exists) {
+                        System.out.println("Cuvântul '" + wordToSearch + "' există în fișier.");
+                    } else {
+                        System.out.println("Cuvântul '" + wordToSearch + "' nu există în fișier.");
+                    }
+                    break;
+
+                case 7:
+                    String firstLine = fileHandler.getFirstLineFromFile();
+                    System.out.println("Prima linie din fișier: " + firstLine);
+                    break;
+
+                case 8:
                     System.out.println("Ieșire din aplicație.");
                     break;
 
