@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class Main {
     private JFrame frame;
-    
+
     public Main() {
         frame = new JFrame("Figuri Geometrice");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,13 +20,12 @@ public class Main {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Apelăm metoda super pentru a desena corect fundalul
-                 // Asigurăm că fundalul este desenat
+                // Asigurăm că fundalul este desenat
                 g.setColor(Color.GREEN); // Setăm culoarea pentru desenarea formei
                 g.drawRect(50, 50, 100, 100); // Desenează un pătrat
             }
         };
-        btnPatrat.setBackground(Color.GREEN);  // Culoare fundal verde
-        btnPatrat.setForeground(Color.BLACK);  // Culoare text negru
+
         btnPatrat.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,8 +43,7 @@ public class Main {
                 g.drawRect(30, 50, 140, 80); // Desenează un dreptunghi
             }
         };
-        btnDreptunghi.setBackground(Color.BLUE);  // Culoare fundal albastru
-        btnDreptunghi.setForeground(Color.WHITE);  // Culoare text alb
+
         btnDreptunghi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,8 +61,7 @@ public class Main {
                 g.drawOval(50, 50, 100, 100); // Desenează un cerc
             }
         };
-        btnCerc.setBackground(Color.RED);  // Culoare fundal roșu
-        btnCerc.setForeground(Color.WHITE);  // Culoare text alb
+
         btnCerc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -78,14 +75,13 @@ public class Main {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g); // Apelăm metoda super pentru a desena corect fundalul
                 setOpaque(true);
-                g.setColor(Color.yellow);
+                g.setColor(Color.black);
                 int[] xPoints = {75, 125, 100};
                 int[] yPoints = {100, 100, 50};
                 g.drawPolygon(xPoints, yPoints, 3); // Desenează un triunghi
             }
         };
-        btnTriunghi.setBackground(Color.YELLOW);  // Culoare fundal galben
-        btnTriunghi.setForeground(Color.BLACK);  // Culoare text negru
+
         btnTriunghi.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,7 +97,6 @@ public class Main {
 
         frame.setVisible(true);
     }
-
     // Metoda pentru adăugare și calculare date pentru Patrat
     private void adaugaPatrat() {
         String input = JOptionPane.showInputDialog("Introdu lungimea laturii patratului:");
