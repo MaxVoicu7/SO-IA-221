@@ -1,16 +1,31 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.print("Hello and welcome!");
-        System.out.print("Hello and welcome!");
-        System.out.print("abobus");
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+// Interfață pentru fantome
+interface Fantoma {
+    void descrieFantoma();
+}
+
+// Enum pentru culori predefinite
+enum Culoare {
+    ALB, ROSU, VERDE, ALBASTRU, NEGRU, TRANSPARENT
+}
+
+// Clasă abstractă - Fantoma de bază
+abstract class FantomaDeBaza implements Fantoma {
+    protected String nume;
+    protected int intensitate;
+    protected Culoare culoare;
+
+    public FantomaDeBaza(String nume, int intensitate, Culoare culoare) {
+        this.nume = nume;
+        this.intensitate = intensitate;
+        this.culoare = culoare;
+    }
+
+    // Metodă comună pentru toate fantomele
+    public void descrieFantoma() {
+        System.out.println("Fantoma " + nume + " are o intensitate de " + intensitate + " și culoarea " + culoare + ".");
     }
 }
