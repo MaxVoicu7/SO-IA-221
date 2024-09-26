@@ -8,16 +8,19 @@ public class Main {
         AdvancedFileHandler fileHandler = new AdvancedFileHandler(filePath);
 
         int option = 0;
-        while (option != 5) {
+        while (option != 8) {
             System.out.println("\n==== Meniu ====");
             System.out.println("1. Adaugă text în fișier");
             System.out.println("2. Citește conținutul fișierului");
             System.out.println("3. Înlocuiește un cuvânt în fișier");
             System.out.println("4. Șterge tot conținutul fișierului");
-            System.out.println("5. Ieșire");
+            System.out.println("5. Numără cuvintele din fișier");
+            System.out.println("6. Verifică dacă un cuvânt există în fișier");
+            System.out.println("7. Afișează prima linie din fișier");
+            System.out.println("8. Ieșire");
             System.out.print("Selectează o opțiune: ");
             option = scanner.nextInt();
-            scanner.nextLine(); // pentru a consuma linia nouă
+            scanner.nextLine();
 
             switch (option) {
                 case 1:

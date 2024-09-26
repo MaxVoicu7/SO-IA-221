@@ -31,4 +31,50 @@ class AdvancedFileHandler extends FileHandler {
             System.out.println("Error replacing word in file: " + e.getMessage());
         }
     }
+
+    // Noua metodă 1: Numără cuvintele din fișier
+    public int countWordsInFile() {
+        int wordCount = 0;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] words = line.split("\\s+"); // Separa cuvintele pe baza spațiilor
+                wordCount += words.length;
+            }
+        } catch (IOException e) {
+            System.out.println("Error counting words: " + e.getMessage());
+        }
+        System.out.println("Total words in file: " + wordCount);
+        return wordCount;
+    }
+
+    // Noua metodă 2: Verifică dacă un cuvânt există în fișier
+    public boolean isWordInFile(String word) {
+        boolean found = false;
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(word)) {
+                    found = true;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error searching for word: " + e.getMessage());
+        }
+        System.out.println("Word " + word + " found: " + found);
+        return found;
+    }
+
+    // Noua metodă 3: Extragerea primei linii din fișier
+    public String getFirstLineFromFile() {
+        String firstLine = "";
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            firstLine = reader.readLine(); // Citim prima linie
+        } catch (IOException e) {
+            System.out.println("Error reading first line: " + e.getMessage());
+        }
+        System.out.println("First line: " + firstLine);
+        return firstLine;
+    }
 }
