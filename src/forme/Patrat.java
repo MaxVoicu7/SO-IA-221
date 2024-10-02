@@ -1,7 +1,7 @@
 package src.forme;
+import src.FormaGeometrica;
 
-
-public class Patrat {
+public class Patrat extends FormaGeometrica {
     private double latura;
 
     public Patrat(double latura) {

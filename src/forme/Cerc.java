@@ -1,7 +1,8 @@
 package src.forme;
 
+import src.FormaGeometrica;
 
-public class Cerc {
+public class Cerc extends FormaGeometrica {
     private double raza;
 
     public Cerc(double raza) {

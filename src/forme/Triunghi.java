@@ -1,6 +1,8 @@
 package src.forme;
 
-public class Triunghi {
+import src.FormaGeometrica;
+
+public class Triunghi extends FormaGeometrica {
     private double baza;
     private double inaltime;
     private double latura1, latura2, latura3;

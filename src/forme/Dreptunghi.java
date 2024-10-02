@@ -1,6 +1,8 @@
 package src.forme;
 
-public class Dreptunghi {
+import src.FormaGeometrica;
+
+public class Dreptunghi extends FormaGeometrica {
     private double lungime;
     private double latime;
 
