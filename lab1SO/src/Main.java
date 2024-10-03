@@ -5,6 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String filePath = "example.txt";
         AdvancedFileHandler fileHandler = new AdvancedFileHandler(filePath);
+        FunctiiNoi functiiNoi = new FunctiiNoi(filePath);
 
         int option = 0;
         while (option != 8) {
@@ -15,8 +16,7 @@ public class Main {
             System.out.println("4. Șterge tot conținutul fișierului");
             System.out.println("5. Numără cuvintele din fișier");
             System.out.println("6. Verifică dacă un cuvânt există în fișier");
-            System.out.println("7. Afișează prima linie din fișier");
-            System.out.println("8. Ieșire");
+            System.out.println("7. Ieșire");
             System.out.print("Selectează o opțiune: ");
             option = scanner.nextInt();
             scanner.nextLine(); // Consumăm newline-ul după int input
@@ -45,14 +45,14 @@ public class Main {
                     break;
 
                 case 5:
-                    int wordCount = fileHandler.countWordsInFile();
+                    int wordCount = functiiNoi.countWordsInFile();
                     System.out.println("Numărul de cuvinte din fișier: " + wordCount);
                     break;
 
                 case 6:
                     System.out.print("Introduceți cuvântul de căutat: ");
                     String wordToSearch = scanner.nextLine();
-                    boolean exists = fileHandler.isWordInFile(wordToSearch);
+                    boolean exists = functiiNoi.isWordInFile(wordToSearch);
                     if (exists) {
                         System.out.println("Cuvântul '" + wordToSearch + "' există în fișier.");
                     } else {
@@ -60,12 +60,8 @@ public class Main {
                     }
                     break;
 
-                case 7:
-                    String firstLine = fileHandler.getFirstLineFromFile();
-                    System.out.println("Prima linie din fișier: " + firstLine);
-                    break;
 
-                case 8:
+                case 7:
                     System.out.println("Ieșire din aplicație.");
                     break;
 
