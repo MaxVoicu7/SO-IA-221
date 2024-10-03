@@ -1,8 +1,9 @@
 package var1.src;
 
-public class Scadere extends OperatiiAritmetice {
+public class Inmultire extends OperatiiAritmetice {
     @Override
     public double operatie(double a, double b) {
-        return a - b;
+        return a * b;
     }
 }
+

@@ -1,3 +1,12 @@
+package var1.src;
+
+import var1.src.Adunare;
+import var1.src.OperatiiAritmetice;
+import var1.src.Scadere;
+
+import java.util.Scanner;
+
+
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +18,8 @@ public class Main {
         System.out.println("Alege operația dorită:");
         System.out.println("1. Adunare");
         System.out.println("2. Scădere");
-
+        System.out.println("3. Înmulțire");
+        System.out.println("4. Împărțire");
         int optiune = scanner.nextInt();
 
         // Alegem operația în funcție de opțiunea utilizatorului
@@ -19,6 +29,12 @@ public class Main {
                 break;
             case 2:
                 operatie = new Scadere();
+                break;
+            case 3:
+                operatie = new Inmultire();
+                break;
+            case 4:
+                operatie = new Impartire();
                 break;
             default:
                 System.out.println("Opțiune invalidă!");
@@ -31,7 +47,7 @@ public class Main {
         System.out.print("Introdu al doilea număr: ");
         double numar2 = scanner.nextDouble();
 
-        // Calculul rezultatului folosind metoda `operatie`
+        // Calculul rezultatului folosind metoda operatie
         try {
             double rezultat = operatie.operatie(numar1, numar2);
             System.out.println("Rezultatul: " + rezultat);
