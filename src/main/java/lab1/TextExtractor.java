@@ -1,4 +1,4 @@
-package lab1;
+package main.java.lab1;
 
 import java.util.regex.Pattern;
 
@@ -22,6 +22,6 @@ public interface TextExtractor {
 
     default String getPattern() {
         return pattern == null ? "" : pattern.pattern();
-    };
+    }
 
 }

@@ -1,5 +1,6 @@
-package lab1;
+package main.java.lab1;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class Main {
 
     private static final NumberTextExtractor numExtractor = new NumberTextExtractor();

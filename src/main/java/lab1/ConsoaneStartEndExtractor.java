@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**
  * @author Giku
  * */
-class ConsoaneStartEndExtractor implements lab1.TextExtractor {
+public class ConsoaneStartEndExtractor implements TextExtractor {
 
 
     private final Pattern pattern = Pattern.compile("\\b[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ][a-zA-Z]*[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]\\b");
